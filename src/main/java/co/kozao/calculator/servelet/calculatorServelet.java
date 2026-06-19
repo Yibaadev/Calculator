@@ -7,35 +7,80 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import co.kozao.calculator.service.calculatorService;
+
 /**
  * Servlet implementation class calculatorServelet
  */
 @WebServlet("/calculatorServelet")
 public class calculatorServelet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public calculatorServelet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	// Manque la déclaration de l'attribut
+	private calculatorService service;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	@Override
+	public void init() throws ServletException {
+
+		service = new calculatorService();
+
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
 
+	    String nbre2 = request.getParameter("nbr2");
+	    String resultat = "";
+
+	    try {
+	        double nbr1 = Double.parseDouble(request.getParameter("nbr1"));
+
+	        switch (request.getParameter("operation")) {
+	            case "addition":
+	                resultat = String.valueOf(calculatorService.addition(nbr1, Double.parseDouble(nbre2)));
+	                break;
+	            case "substraction":
+	                resultat = String.valueOf(calculatorService.substraction(nbr1, Double.parseDouble(nbre2)));
+	                break;
+	            case "multiplication":
+	                resultat = String.valueOf(calculatorService.multiplication(nbr1, Double.parseDouble(nbre2)));
+	                break;
+	            case "division":
+	                resultat = calculatorService.division(nbr1, Double.parseDouble(nbre2));
+	                break;
+	            case "power":
+	                resultat = String.valueOf(calculatorService.power(nbr1, Double.parseDouble(nbre2)));
+	                break;
+	            case "squaReoot":
+	                resultat = calculatorService.squaReoot(nbr1);
+	                break;
+	            case "factorial":
+	                resultat = String.valueOf(calculatorService.factorial((int) nbr1));
+	                break;
+	            default:
+	                resultat = "Opération inconnue";
+	        }
+	    } catch (NumberFormatException e) {
+	        resultat = "Erreur : Veuillez entrer un nombre valide";
+	    } catch (IllegalArgumentException e) {
+	        resultat = e.getMessage();
+	    }
+
+	    request.setAttribute("resultat", resultat);
+	    request.getRequestDispatcher("/index.jsp").forward(request, response);
+	}
 }
