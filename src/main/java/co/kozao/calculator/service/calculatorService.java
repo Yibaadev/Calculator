@@ -1,5 +1,4 @@
 package co.kozao.calculator.service;
-
 import org.apache.commons.math3.util.CombinatoricsUtils;
 
 public class calculatorService {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Calculatrice</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
 
 <%
     String error = (String) request.getAttribute("error");
-    Object res   = request.getAttribute("result");
+    Object res   = request.getAttribute("resultat");
     if (error != null) {
 %>
     <p style="color:red;"><%= error %></p>
