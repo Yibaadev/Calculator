@@ -56,19 +56,19 @@ public class calculatorServelet extends HttpServlet {
 	            case "substraction":
 	                resultat = String.valueOf(calculatorService.substraction(nbr1, Double.parseDouble(nbre2)));
 	                break;
-	            case "Multiplication":
+	            case "multiplication":
 	                resultat = String.valueOf(calculatorService.multiplication(nbr1, Double.parseDouble(nbre2)));
 	                break;
 	            case "division":
 	                resultat = calculatorService.division(nbr1, Double.parseDouble(nbre2));
 	                break;
-	            case "puissance":
+	            case "power":
 	                resultat = String.valueOf(calculatorService.power(nbr1, Double.parseDouble(nbre2)));
 	                break;
-	            case "racine":
+	            case "squaReoot":
 	                resultat = calculatorService.squaReoot(nbr1);
 	                break;
-	            case "factoriel":
+	            case "factorial":
 	                resultat = String.valueOf(calculatorService.factorial((int) nbr1));
 	                break;
 	            default:
