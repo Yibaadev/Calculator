@@ -10,7 +10,7 @@
 
 <h2>Calculatrice Numérique</h2>
 
-<form action="Calculatrice" method="post">
+<form action="calculatorServelet" method="post">
     <input type="text" name="nbr1" placeholder="Nombre 1" required>
     <select name="operation">
         <option value="addition">+ Addition</option>
