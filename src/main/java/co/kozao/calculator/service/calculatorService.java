@@ -4,9 +4,10 @@ import org.apache.commons.math3.util.CombinatoricsUtils;
 
 public class calculatorService {
 
-	public static double addition(double nbre1, double nbre2) {
-		return nbre1 + nbre2;
-	}
+    public static double addition(double nbre1, double nbre2) {
+        return nbre1 + nbre2;
+    }
+
 
 	public static double substraction(double nbre1, double nbre2) {
 		return nbre1 - nbre2;
@@ -45,3 +46,5 @@ public class calculatorService {
 	}
 
 }
+
+   
