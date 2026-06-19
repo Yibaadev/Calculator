@@ -25,12 +25,12 @@
             <label for="operation">Opération</label>
             <select id="operation" name="operation">
                 <option value="addition">+ Addition</option>
-                <option value="soustraction">− Soustraction</option>
+                <option value="substraction">− Soustraction</option>
                 <option value="multiplication">× Multiplication</option>
                 <option value="division">÷ Division</option>
-                <option value="puissance">^ Puissance</option>
-                <option value="racine">√ Racine carrée</option>
-                <option value="factorielle">! Factorielle</option>
+                <option value="power">^ Puissance</option>
+                <option value="squaReoot">√ Racine carrée</option>
+                <option value="factorial">! Factorielle</option>
             </select>
         </div>
 
