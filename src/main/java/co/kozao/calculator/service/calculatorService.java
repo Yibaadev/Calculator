@@ -38,7 +38,9 @@ public class calculatorService {
 	public double factorial (int nbre1) {
 		if (nbre1 < 0) {
             throw new IllegalArgumentException ("Erreur : Factorielle d'un nombre négatif");
+		}
 		return CombinatoricsUtils.factorial(nbre1);
+		
 	}
 	
 	
